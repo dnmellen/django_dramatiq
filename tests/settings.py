@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "django_dramatiq",
-    # "tests.testoverrideconfig.apps.GroupsCallbacksDjangoDramatiqConfig",
     "tests.testapp1",
     "tests.testapp2",
     "tests.testapp3",
@@ -93,6 +92,11 @@ DRAMATIQ_BROKER = {
         "django_dramatiq.middleware.AdminMiddleware",
         "django_dramatiq.middleware.DbConnectionsMiddleware",
     ]
+}
+
+
+DRAMATIQ_RATE_LIMITER_BACKEND = {
+    "BACKEND": "dramatiq.rate_limits.backends.stub.StubBackend",
 }
 
 

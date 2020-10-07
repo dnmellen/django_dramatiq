@@ -94,6 +94,9 @@ class DjangoDramatiqConfig(AppConfig):
                 return getattr(self, middleware_kwargs_method)()
         return {}
 
+    def middleware_groupcallbacks_kwargs(self):
+        return {"rate_limiter_backend": self.rate_limiter_backend}
+
     @classmethod
     def broker_settings(cls):
         return getattr(settings, "DRAMATIQ_BROKER", DEFAULT_BROKER_SETTINGS)

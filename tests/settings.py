@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "django_dramatiq",
+    # "tests.testoverrideconfig.apps.GroupsCallbacksDjangoDramatiqConfig",
     "tests.testapp1",
     "tests.testapp2",
     "tests.testapp3",
@@ -88,6 +89,7 @@ DRAMATIQ_BROKER = {
         "dramatiq.middleware.AgeLimit",
         TimeLimit(time_limit=36000000),
         "dramatiq.middleware.Retries",
+        "dramatiq.middleware.GroupCallbacks",
         "django_dramatiq.middleware.AdminMiddleware",
         "django_dramatiq.middleware.DbConnectionsMiddleware",
     ]
